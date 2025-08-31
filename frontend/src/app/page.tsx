@@ -2,10 +2,8 @@ import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
 import Footer from '@/components/layout/Footer';
 import FloatingButton from '@/components/ui/floating-button';
-import { Card } from '@/components/ui/card';
 import EventList from '@/components/event/EventList';
 import FullCalendarView from '@/components/calendar/FullCalendarView';
-import { formatKoreanDate, getKoreanDate } from '@/utils/dateUtils';
 
 export default function Home() {
   return (

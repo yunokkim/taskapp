@@ -34,10 +34,10 @@ export async function GET(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching event:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch event' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch event' },
       { status: 500 }
     )
   }
@@ -115,7 +115,7 @@ export async function PUT(
 
     // 새 알림 설정 추가
     if (notifications && notifications.length > 0 && event) {
-      const notificationData = notifications.map((notif: any) => ({
+      const notificationData = notifications.map((notif: { type: string; minutesBefore: number }) => ({
         event_id: event.id,
         type: notif.type.toUpperCase(),
         minutes_before: notif.minutesBefore,
@@ -135,10 +135,10 @@ export async function PUT(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error updating event:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to update event' },
+      { error: error instanceof Error ? error.message : 'Failed to update event' },
       { status: 500 }
     )
   }
@@ -167,10 +167,10 @@ export async function DELETE(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error deleting event:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to delete event' },
+      { error: error instanceof Error ? error.message : 'Failed to delete event' },
       { status: 500 }
     )
   }

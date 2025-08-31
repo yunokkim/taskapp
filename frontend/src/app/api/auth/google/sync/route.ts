@@ -54,10 +54,10 @@ export async function POST(request: NextRequest) {
       googleEventId 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error syncing to Google Calendar:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to sync with Google Calendar' },
+      { error: error instanceof Error ? error.message : 'Failed to sync with Google Calendar' },
       { status: 500 }
     );
   }

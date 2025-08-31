@@ -14,10 +14,8 @@ import { usePersonaStore } from '@/store/personaStore';
 import EventFormModal from '@/components/event/EventFormModal';
 import EventEditModal from '@/components/event/EventEditModal';
 import HolidayIndicator from '@/components/calendar/HolidayIndicator';
-import { Event } from '@/types';
-import { koreanHolidays, getHolidayByDate, Holiday } from '@/utils/holidays';
+import { koreanHolidays, getHolidayByDate } from '@/utils/holidays';
 import { KOREAN_TIMEZONE_INFO } from '@/utils/dateUtils';
-import { convertUTCToKST } from '@/utils/timezone';
 
 type CalendarView = 'dayGridMonth' | 'timeGridWeek' | 'timeGridDay' | 'listWeek';
 

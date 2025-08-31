@@ -80,10 +80,10 @@ export async function GET(request: NextRequest) {
         }
       });
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Stock API Error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch stock data' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch stock data' },
       { 
         status: 500,
         headers: {

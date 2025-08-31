@@ -10,7 +10,7 @@ import { ko } from 'date-fns/locale';
 
 export default function UpcomingEvents() {
   const { events, fetchEvents, loading } = useEventStore();
-  const { personas, fetchPersonas, getPersonaById } = usePersonaStore();
+  const { fetchPersonas, getPersonaById } = usePersonaStore();
 
   useEffect(() => {
     fetchPersonas();

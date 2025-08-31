@@ -55,10 +55,10 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching events:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch events' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch events' },
       { status: 500 }
     )
   }
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
     // 알림 설정이 있다면 추가
     if (notifications && notifications.length > 0 && event) {
-      const notificationData = notifications.map((notif: any) => ({
+      const notificationData = notifications.map((notif: { type: string; minutesBefore: number }) => ({
         event_id: event.id,
         type: notif.type.toUpperCase(),
         minutes_before: notif.minutesBefore,
@@ -166,10 +166,10 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error creating event:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to create event' },
+      { error: error instanceof Error ? error.message : 'Failed to create event' },
       { status: 500 }
     )
   }

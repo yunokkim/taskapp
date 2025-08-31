@@ -12,7 +12,7 @@ import { ko } from 'date-fns/locale';
 import { getKoreanDate, toKoreanDateString, parseKoreanDate } from '@/utils/dateUtils';
 
 export default function EventList() {
-  const { events, deleteEvent, fetchEvents, loading } = useEventStore();
+  const { events, deleteEvent, fetchEvents } = useEventStore();
   const { getPersonaById, fetchPersonas } = usePersonaStore();
   const [editingEventId, setEditingEventId] = useState<string | null>(null);
 

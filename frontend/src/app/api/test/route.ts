@@ -15,12 +15,12 @@ export async function GET() {
       message: 'Supabase connection successful',
       timestamp: new Date().toISOString()
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Supabase connection error:', error)
     return NextResponse.json(
       { 
         success: false, 
-        error: error.message || 'Failed to connect to Supabase',
+        error: error instanceof Error ? error.message : 'Failed to connect to Supabase',
         timestamp: new Date().toISOString()
       },
       { status: 500 }

@@ -33,10 +33,10 @@ export async function GET(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching persona:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch persona' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch persona' },
       { status: 500 }
     )
   }
@@ -79,10 +79,10 @@ export async function PUT(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error updating persona:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to update persona' },
+      { error: error instanceof Error ? error.message : 'Failed to update persona' },
       { status: 500 }
     )
   }
@@ -111,10 +111,10 @@ export async function DELETE(
         'Content-Type': 'application/json; charset=utf-8'
       }
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error deleting persona:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to delete persona' },
+      { error: error instanceof Error ? error.message : 'Failed to delete persona' },
       { status: 500 }
     )
   }

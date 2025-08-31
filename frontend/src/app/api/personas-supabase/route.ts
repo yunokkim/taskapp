@@ -14,10 +14,10 @@ export async function GET() {
     }
     
     return NextResponse.json(personas)
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching personas:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch personas' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch personas' },
       { status: 500 }
     )
   }
@@ -51,10 +51,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(persona, { status: 201 })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error creating persona:', error)
     return NextResponse.json(
-      { error: error.message || 'Failed to create persona' },
+      { error: error instanceof Error ? error.message : 'Failed to create persona' },
       { status: 500 }
     )
   }

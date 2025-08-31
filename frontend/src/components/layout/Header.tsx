@@ -29,7 +29,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Logo size="lg" />
             <h1 className="text-2xl font-bold text-gray-800">
-              KYO's 일정관리
+              KYO&apos;s 일정관리
             </h1>
           </div>
 

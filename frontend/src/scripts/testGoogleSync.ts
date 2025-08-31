@@ -26,10 +26,10 @@ async function testGoogleSync() {
     
     // Check if we can access the API without auth (just to test connection)
     try {
-      const calendar = google.calendar({ version: 'v3', auth });
+      google.calendar({ version: 'v3', auth });
       console.log('Google Calendar API client created successfully');
-    } catch (error) {
-      console.error('Error creating Google Calendar client:', error);
+    } catch (err) {
+      console.error('Error creating Google Calendar client:', err);
     }
 
     // Check recent events in database
