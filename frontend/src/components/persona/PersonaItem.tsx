@@ -28,7 +28,7 @@ export default function PersonaItem({ persona, eventCount = 0 }: PersonaItemProp
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(persona.name);
   const [selectedColor, setSelectedColor] = useState(persona.color);
-  const [showColorPicker, setShowColorPicker] = useState(false);
+  // const [showColorPicker, setShowColorPicker] = useState(false);
   
   const inputRef = useRef<HTMLInputElement>(null);
   const { updatePersona, deletePersona } = usePersonaStore();

@@ -16,7 +16,7 @@ const DEFAULT_COLORS = [
 export default function PersonaList() {
   const [isAdding, setIsAdding] = useState(false);
   const [newPersonaName, setNewPersonaName] = useState('');
-  const { personas, addPersona, fetchPersonas, loading } = usePersonaStore();
+  const { personas, addPersona, fetchPersonas } = usePersonaStore();
   const { getEventsByPersona } = useEventStore();
 
   useEffect(() => {

@@ -100,13 +100,13 @@ export default function FullCalendarView() {
   const allEvents = [...calendarEvents, ...holidayEvents];
 
   // 날짜 클릭 시 새 일정 생성 모달 열기
-  const handleDateClick = useCallback((info: any) => {
-    setSelectedDate(new Date(info.date));
+  const handleDateClick = useCallback((info: { date: Date }) => {
+    setSelectedDate(info.date);
     setIsEventModalOpen(true);
   }, []);
 
   // 이벤트 클릭 시 수정 모달 열기
-  const handleEventClick = useCallback((info: any) => {
+  const handleEventClick = useCallback((info: { event: { id: string; extendedProps?: { isHoliday?: boolean } } }) => {
     const eventId = info.event.id;
     setEditingEventId(eventId);
   }, []);

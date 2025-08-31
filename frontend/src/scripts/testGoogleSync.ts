@@ -33,7 +33,7 @@ async function testGoogleSync() {
     }
 
     // Check recent events in database
-    const { data: events, error } = await supabase
+    const { data: events } = await supabase
       .from('events')
       .select('*')
       .gte('created_at', '2025-08-31T03:00:00Z')

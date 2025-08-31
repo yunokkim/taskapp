@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 export async function GET() {
   try {
     // Supabase 연결 테스트
-    const { data, error } = await supabase.from('_').select('*').limit(1)
+    const { error } = await supabase.from('_').select('*').limit(1)
     
     if (error && !error.message.includes('does not exist')) {
       throw error

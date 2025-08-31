@@ -49,13 +49,13 @@ export const useEventStore = create<EventState>((set, get) => ({
       
       const events = await response.json();
       // API 응답의 필드명을 프론트엔드 타입에 맞게 변환
-      const transformedEvents = events.map((event: any) => ({
+      const transformedEvents = events.map((event: { persona_id: string; start: string; end?: string; repeat: string; notification_settings?: Array<{ type: string; minutes_before: number }> }) => ({
         ...event,
         personaId: event.persona_id,
         start: new Date(event.start), // ISO 문자열을 그대로 Date 객체로 변환 (UTC 유지)
         end: event.end ? new Date(event.end) : undefined,
         repeat: event.repeat.toLowerCase(),
-        notifications: event.notification_settings?.map((notif: any) => ({
+        notifications: event.notification_settings?.map((notif: { type: string; minutes_before: number }) => ({
           type: notif.type.toLowerCase(),
           minutesBefore: notif.minutes_before,
         })) || [],
@@ -93,7 +93,7 @@ export const useEventStore = create<EventState>((set, get) => ({
         start: new Date(newEvent.start),
         end: newEvent.end ? new Date(newEvent.end) : undefined,
         repeat: newEvent.repeat.toLowerCase(),
-        notifications: newEvent.notification_settings?.map((notif: any) => ({
+        notifications: newEvent.notification_settings?.map((notif: { type: string; minutes_before: number }) => ({
           type: notif.type.toLowerCase(),
           minutesBefore: notif.minutes_before,
         })) || [],
@@ -134,7 +134,7 @@ export const useEventStore = create<EventState>((set, get) => ({
         start: new Date(updatedEvent.start),
         end: updatedEvent.end ? new Date(updatedEvent.end) : undefined,
         repeat: updatedEvent.repeat.toLowerCase(),
-        notifications: updatedEvent.notification_settings?.map((notif: any) => ({
+        notifications: updatedEvent.notification_settings?.map((notif: { type: string; minutes_before: number }) => ({
           type: notif.type.toLowerCase(),
           minutesBefore: notif.minutes_before,
         })) || [],
