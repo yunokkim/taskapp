@@ -312,7 +312,7 @@ export default function EventEditModal({ isOpen, onClose, eventId }: EventEditMo
           {/* 반복 설정 */}
           <div className="space-y-3">
             <Label className="text-sm font-medium text-gray-700">반복</Label>
-            <Select value={repeat} onValueChange={(value: Event['repeat']) => setRepeat(value)}>
+            <Select value={repeat} onValueChange={(value: string) => setRepeat(value as Event['repeat'])}>
               <SelectTrigger className="h-11 focus:border-blue-500">
                 <SelectValue />
               </SelectTrigger>
