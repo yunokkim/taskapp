@@ -50,14 +50,14 @@ export default function PersonaItem({ persona, eventCount = 0 }: PersonaItemProp
       updatePersona(persona.id, { color: selectedColor });
     }
     setIsEditing(false);
-    setShowColorPicker(false);
+    // setShowColorPicker(false);
   };
 
   const handleCancel = () => {
     setEditName(persona.name);
     setSelectedColor(persona.color);
     setIsEditing(false);
-    setShowColorPicker(false);
+    // setShowColorPicker(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
