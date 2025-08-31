@@ -21,9 +21,9 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    async session({ session, token }: { session: { accessToken?: string; refreshToken?: string }; token: { accessToken?: string; refreshToken?: string } }) {
-      session.accessToken = token.accessToken;
-      session.refreshToken = token.refreshToken;
+    async session({ session, token }) {
+      (session as any).accessToken = token.accessToken;
+      (session as any).refreshToken = token.refreshToken;
       return session;
     }
   },
