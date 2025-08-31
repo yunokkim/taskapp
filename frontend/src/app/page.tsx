@@ -21,7 +21,7 @@ export default function Home() {
                 안녕하세요, 김윤옥님! 👋
               </h1>
               <p className="text-gray-600">
-                오늘은 {getKoreanDate().toLocaleDateString('ko-KR', { 
+                오늘은 {new Date().toLocaleDateString('ko-KR', { 
                   year: 'numeric', 
                   month: 'long', 
                   day: 'numeric',
