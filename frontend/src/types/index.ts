@@ -37,3 +37,11 @@ export interface FilterOptions {
   tags?: string[];
   searchText?: string;
 }
+
+// NextAuth 세션 타입 확장
+declare module "next-auth" {
+  interface Session {
+    accessToken?: string;
+    refreshToken?: string;
+  }
+}
