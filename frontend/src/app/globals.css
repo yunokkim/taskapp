@@ -1,0 +1,396 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  }
+  
+  /* Pretendard 폰트 최적화 */
+  html {
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* 한국어 텍스트 최적화 */
+  :lang(ko) {
+    word-break: keep-all;
+    word-wrap: break-word;
+  }
+}
+
+/* 고급스러운 커스텀 스크롤바 */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.6);
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* 다크모드 스크롤바 */
+.dark .custom-scrollbar {
+  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.4);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7);
+}
+
+/* 더 부드러운 스크롤링 */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* 모달 전용 스크롤바 - 더 세련됨 */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+  margin: 4px 0;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.4), rgba(100, 116, 139, 0.6));
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 20px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(100, 116, 139, 0.6), rgba(71, 85, 105, 0.8));
+  transform: scaleX(1.2);
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, rgba(71, 85, 105, 0.8), rgba(51, 65, 85, 0.9));
+}
+
+/* 다크모드 모달 스크롤바 */
+.dark .modal-scrollbar {
+  scrollbar-color: rgba(71, 85, 105, 0.4) transparent;
+}
+
+.dark .modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(71, 85, 105, 0.1);
+}
+
+.dark .modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(71, 85, 105, 0.5), rgba(100, 116, 139, 0.7));
+}
+
+.dark .modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(100, 116, 139, 0.7), rgba(148, 163, 184, 0.8));
+}
+
+/* FullCalendar 커스텀 스타일 */
+.fc {
+  margin: 16px 16px 24px 16px; /* 상좌우 16px, 하단 24px */
+}
+
+/* 요일 헤더 스타일링 */
+.fc-theme-standard .fc-col-header-cell {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  padding: 12px 0 !important;
+  font-size: 14px !important;
+}
+
+/* 요일별 이모티콘 및 스타일 */
+.fc-col-header-cell:nth-child(1) { /* 일요일 */
+  background-color: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+.fc-col-header-cell:nth-child(1):before {
+  content: "☀️ ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(2):before { /* 월요일 */
+  content: "🌙 ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(3):before { /* 화요일 */
+  content: "🔥 ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(4):before { /* 수요일 */
+  content: "🌊 ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(5):before { /* 목요일 */
+  content: "🌳 ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(6):before { /* 금요일 */
+  content: "⭐ ";
+  margin-right: 4px;
+}
+
+.fc-col-header-cell:nth-child(7) { /* 토요일 */
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+.fc-col-header-cell:nth-child(7):before {
+  content: "🎯 ";
+  margin-right: 4px;
+}
+
+/* 주말 날짜 셀 배경색 */
+.fc-day-sat { /* 토요일 */
+  background-color: rgba(59, 130, 246, 0.05) !important;
+}
+
+.fc-day-sun { /* 일요일 */
+  background-color: rgba(220, 38, 38, 0.05) !important;
+}
+
+/* 공휴일 배경색 */
+.fc-day-national-holiday {
+  background-color: rgba(220, 38, 38, 0.12) !important;
+}
+
+/* 공휴일 표시 스타일 */
+.fc-holiday-indicator {
+  margin-top: 2px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+/* 공휴일 이벤트 배경 스타일 */
+.holiday-event {
+  border: none !important;
+}
+
+.national-holiday {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+.memorial-day {
+  background-color: rgba(124, 58, 237, 0.05) !important;
+}
+
+/* 캘린더 셀 내용 스타일 */
+.fc-daygrid-day-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px;
+}
+
+/* 날짜 숫자 스타일 */
+.fc-daygrid-day-number {
+  padding: 8px 12px !important;
+  font-weight: 500 !important;
+}
+
+/* 토요일 날짜 텍스트 색상 */
+.fc-day-sat .fc-daygrid-day-number {
+  color: #2563eb !important;
+}
+
+/* 일요일 날짜 텍스트 색상 */
+.fc-day-sun .fc-daygrid-day-number {
+  color: #dc2626 !important;
+}
+
+/* 오늘 날짜 스타일 개선 */
+.fc-day-today {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background-color: #3b82f6 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 4px auto !important;
+}
+
+/* 셀 보더 스타일 개선 */
+.fc-theme-standard .fc-scrollgrid {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: 1px solid #f1f5f9 !important;
+}
+
+/* 이벤트 스타일 개선 */
+.fc-event {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  padding: 2px 6px !important;
+  margin: 1px 2px !important;
+}
+
+/* 호버 효과 */
+.fc-daygrid-day:hover {
+  background-color: rgba(59, 130, 246, 0.05) !important;
+  transition: background-color 0.2s ease !important;
+}
