@@ -5,7 +5,7 @@
  * 로컬 시간대를 무시하고 입력된 시간을 한국시간으로 간주
  */
 export function combineKSTDateTime(date: Date, timeString: string): Date {
-  const [hours, minutes] = timeString.split(':').map(Number);
+  // const [hours, minutes] = timeString.split(':').map(Number);
   
   // 날짜 부분을 YYYY-MM-DD 형태로 추출
   const year = date.getFullYear();
